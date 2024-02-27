@@ -1,0 +1,235 @@
+---- Minecraft Crash Report ----
+// I feel sad now :(
+
+Time: 2/27/24, 5:37 PM
+Description: Mod loading error has occurred
+
+java.lang.Exception: Mod Loading has failed
+	at net.minecraftforge.fml.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:72) ~[forge:?] {re:classloading}
+	at net.minecraftforge.fml.server.ServerModLoader.load(ServerModLoader.java:37) ~[forge:?] {re:classloading}
+	at net.minecraft.server.Main.main(Main.java:136) ~[?:?] {re:classloading,re:mixin,pl:mixin:A}
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.minecraftforge.fml.loading.FMLServerLaunchProvider.lambda$launchService$0(FMLServerLaunchProvider.java:37) ~[mohist.jar:36.2] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:54) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:72) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:82) ~[modlauncher-mohist-8.1.3.jar:?] {re:classloading}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:66) ~[modlauncher-mohist-8.1.3.jar:?] {re:classloading}
+	at net.minecraftforge.server.ServerMain$Runner.runLauncher(ServerMain.java:105) ~[mohist.jar:?] {}
+	at net.minecraftforge.server.ServerMain$Runner.access$100(ServerMain.java:102) ~[mohist.jar:?] {}
+	at net.minecraftforge.server.ServerMain.main(ServerMain.java:86) ~[mohist.jar:?] {re:classloading,re:classloading,re:classloading,re:classloading,re:classloading}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at net.minecraftforge.fml.loading.RuntimeDistCleaner.processClassWithFlags(RuntimeDistCleaner.java:57) ~[mohist.jar:36.2] {}
+-- MOD entityculling --
+Details:
+	Mod File: entityculling-forge-mc1.16.5-1.5.2.jar
+	Failure message: EntityCulling (entityculling) has failed to load correctly
+		java.lang.RuntimeException: Attempted to load class net/minecraft/client/settings/KeyBinding for invalid dist DEDICATED_SERVER
+	Mod Version: 1.5.2
+	Mod Issue URL: NOT PROVIDED
+	Exception message: java.lang.RuntimeException: Attempted to load class net/minecraft/client/settings/KeyBinding for invalid dist DEDICATED_SERVER
+Stacktrace:
+	at net.minecraftforge.fml.loading.RuntimeDistCleaner.processClassWithFlags(RuntimeDistCleaner.java:57) ~[mohist.jar:36.2] {}
+	at cpw.mods.modlauncher.LaunchPluginHandler.offerClassNodeToPlugins(LaunchPluginHandler.java:85) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.ClassTransformer.transform(ClassTransformer.java:120) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.TransformingClassLoader$DelegatedClassLoader.findClass(TransformingClassLoader.java:290) ~[modlauncher-mohist-8.1.3.jar:?] {}
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:160) ~[modlauncher-mohist-8.1.3.jar:?] {re:classloading}
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:109) ~[modlauncher-mohist-8.1.3.jar:?] {re:classloading}
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[?:?] {}
+	at dev.tr7zw.entityculling.EntityCullingModBase.<init>(EntityCullingModBase.java:42) ~[entityculling:1.5.2] {re:classloading}
+	at dev.tr7zw.entityculling.EntityCullingMod.<init>(EntityCullingMod.java:25) ~[entityculling:1.5.2] {re:classloading}
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {re:classloading,re:classloading}
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}
+	at java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:128) ~[?:?] {}
+	at jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:304) ~[?:?] {re:classloading,re:classloading}
+	at java.lang.Class.newInstance(Class.java:725) ~[?:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:67) ~[forge:?] {re:classloading}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:106) ~[forge:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?] {re:computing_frames}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?] {re:computing_frames}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Mohist Version: 1.16.5-1220
+	Operating System: Linux (amd64) version 6.2.0-1019-azure
+	Java Version: 21.0.2, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 10082114120 bytes (9615 MB) / 10737418240 bytes (10240 MB) up to 10737418240 bytes (10240 MB)
+	CPUs: 4
+	JVM Flags: 2 total; -Xms10G -Xmx10G
+	ModLauncher: mohist-8.1.3
+	ModLauncher launch target: fmlserver
+	ModLauncher naming: srg
+	ModLauncher services: 
+		/mixin-0.8.4.jar mixin PLUGINSERVICE 
+		/eventbus-4.0.0.jar eventbus PLUGINSERVICE 
+		/mohist.jar object_holder_definalize PLUGINSERVICE 
+		/mohist.jar runtime_enum_extender PLUGINSERVICE 
+		/mohist.jar capability_inject_definalize PLUGINSERVICE 
+		/accesstransformers-3.0.1.jar accesstransformer PLUGINSERVICE 
+		/mohist.jar runtimedistcleaner PLUGINSERVICE 
+		/mixin-0.8.4.jar mixin TRANSFORMATIONSERVICE 
+		/mohist.jar fml TRANSFORMATIONSERVICE 
+	FML: 36.2
+	Forge: com.mohistmc:36.2.41
+	FML Language Providers: 
+		javafml@36.2
+		minecraft@1
+		kotlinforforge@1.17.0
+	Mod List: 
+		hexerei-0.1.4.jar                                 |Hexerei                       |hexerei                       |0.1.4               |CREATE_REG|Manifest: NOSIGNATURE
+		infernal-expansion-1.16.5-2.5.0.jar               |Infernal Expansion            |infernalexp                   |2.5.0               |CREATE_REG|Manifest: NOSIGNATURE
+		constructsarmory-forge-2.0.0-alpha.2+1.16.5.jar   |Construct's Armory            |constructsarmory              |2.0.0-alpha.2+1.16.5|CREATE_REG|Manifest: NOSIGNATURE
+		entitycollisionfpsfix-1.16-1.0.1.jar              |Entity Collision FPS Fix      |entitycollisionfpsfix         |1.0.1               |CREATE_REG|Manifest: NOSIGNATURE
+		connectivity-2.4-1.16.5.jar                       |Connectivity Mod              |connectivity                  |2.4-1.16.5          |CREATE_REG|Manifest: NOSIGNATURE
+		dynamiclights-1.16.5.1.jar                        |Dynamic Lights                |dynamiclights                 |1.16.5.1            |CREATE_REG|Manifest: NOSIGNATURE
+		betternether_reforged-1.2.jar                     |Better Nether Reforged        |betternether                  |1.2                 |CREATE_REG|Manifest: NOSIGNATURE
+		InsaneLib-1.4.2-mc1.16.5.jar                      |InsaneLib                     |insanelib                     |1.4.2               |CREATE_REG|Manifest: NOSIGNATURE
+		Placebo-1.16.5-4.7.1.jar                          |Placebo                       |placebo                       |4.7.1               |CREATE_REG|Manifest: NOSIGNATURE
+		modernfix-forge-5.13.0+mc1.16.5.jar               |ModernFix                     |modernfix                     |5.13.0+mc1.16.5     |CREATE_REG|Manifest: NOSIGNATURE
+		citadel-1.8.1-1.16.5.jar                          |Citadel                       |citadel                       |1.8.1               |CREATE_REG|Manifest: NOSIGNATURE
+		alexsmobs-1.12.1.jar                              |Alex's Mobs                   |alexsmobs                     |1.12.1              |CREATE_REG|Manifest: NOSIGNATURE
+		materialis-1.16.5-2.5.1.jar                       |Materialis                    |materialis                    |1.16.5-2.5.1        |CREATE_REG|Manifest: NOSIGNATURE
+		MaxHealthFix-Forge-1.16.5-1.0.5.jar               |MaxHealthFix                  |maxhealthfix                  |1.0.5               |CREATE_REG|Manifest: eb:c4:b1:67:8b:f9:0c:db:dc:4f:01:b1:8e:61:64:39:4c:10:85:0b:a6:c4:c7:48:f0:fa:95:f2:cb:08:3a:e5
+		gemsnjewels-1.16.5-0.23.3.jar                     |Gems & Jewels                 |gemsnjewels                   |0.23.3              |CREATE_REG|Manifest: NOSIGNATURE
+		MutantBeasts-1.16.4-1.1.3.jar                     |Mutant Beasts                 |mutantbeasts                  |1.16.4-1.1.3        |CREATE_REG|Manifest: d9:be:bd:b6:9a:e4:14:aa:05:67:fb:84:06:77:a0:c5:10:ec:27:15:1b:d6:c0:88:49:9a:ef:26:77:61:0b:5e
+		Bookshelf-Forge-1.16.5-10.4.33.jar                |Bookshelf                     |bookshelf                     |10.4.33             |CREATE_REG|Manifest: eb:c4:b1:67:8b:f9:0c:db:dc:4f:01:b1:8e:61:64:39:4c:10:85:0b:a6:c4:c7:48:f0:fa:95:f2:cb:08:3a:e5
+		reliquary-1.16.5-1.3.5.1124.jar                   |Reliquary                     |xreliquary                    |1.16.5-1.3.5.1124   |CREATE_REG|Manifest: NOSIGNATURE
+		sophisticatedbackpacks-1.16.5-3.15.20.755.jar     |Sophisticated Backpacks       |sophisticatedbackpacks        |1.16.5-3.15.20.755  |CREATE_REG|Manifest: NOSIGNATURE
+		guardvillagers-1.16.5.1.2.6.jar                   |Guard Villagers               |guardvillagers                |1.2.6               |CREATE_REG|Manifest: NOSIGNATURE
+		Apotheosis-1.16.5-4.8.9A0.jar                     |Apotheosis                    |apotheosis                    |4.8.9A0             |CREATE_REG|Manifest: NOSIGNATURE
+		jeed-1.16.5-1.6 (1).jar                           |Just Enough Effect Description|jeed                          |1.16.5-1.6          |CREATE_REG|Manifest: NOSIGNATURE
+		abyg-1.2-forge.jar                                |[BYG Addon] Enhanced Vanilla B|bygvanillabiomes              |1.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		immersive-armors-1.5.0+1.16.5-forge.jar           |Immersive Armors              |immersive_armors              |1.5.0+1.16.5        |CREATE_REG|Manifest: NOSIGNATURE
+		FpsReducer-forge-1.24-mc1.16.5.jar                |FPS Reducer                   |fpsreducer                    |1.24-mc1.16.5       |CREATE_REG|Manifest: NOSIGNATURE
+		carryon-1.16.5-1.15.5.22.jar                      |Carry On                      |carryon                       |1.15.5.22           |CREATE_REG|Manifest: NOSIGNATURE
+		JustEnoughResources-1.16.5-0.12.2.216.jar         |Just Enough Resources         |jeresources                   |0.12.2.216          |CREATE_REG|Manifest: NOSIGNATURE
+		Paraglider-1.16.5-1.3.2.14.jar                    |Paraglider                    |paraglider                    |1.3.2.14            |CREATE_REG|Manifest: NOSIGNATURE
+		twilightforest-1.16.5-4.0.870-universal.jar       |The Twilight Forest           |twilightforest                |NONE                |CREATE_REG|Manifest: NOSIGNATURE
+		betterendforge-1.16.5-2.5.jar                     |BetterEnd Forge               |betterendforge                |1.16.5-2.5          |CREATE_REG|Manifest: NOSIGNATURE
+		ExperienceBugFix-1.36.0.2.jar                     |Experience Bug Fix            |experiencebugfix              |1.36.0.2            |CREATE_REG|Manifest: NOSIGNATURE
+		corpse-1.16.5-1.0.6.jar                           |Corpse                        |corpse                        |1.16.5-1.0.6        |CREATE_REG|Manifest: NOSIGNATURE
+		chipped-1.16.5-1.2.1-forge.jar                    |Chipped                       |chipped                       |1.16.5-1.2.1-forge  |CREATE_REG|Manifest: NOSIGNATURE
+		chocolate-1.3.0-1.16.4.jar                        |Chocolate                     |chocolate                     |1.3.0-1.16.4        |CREATE_REG|Manifest: NOSIGNATURE
+		FarmersDelight-1.16.5-0.6.0.jar                   |Farmer's Delight              |farmersdelight                |1.16.5-0.6.0        |CREATE_REG|Manifest: NOSIGNATURE
+		torchmaster-2.3.8.jar                             |Torchmaster                   |torchmaster                   |2.3.8               |CREATE_REG|Manifest: NOSIGNATURE
+		repurposed_structures_forge-3.4.7+1.16.5.jar      |Repurposed Structures         |repurposed_structures         |3.4.7+1.16.5        |CREATE_REG|Manifest: NOSIGNATURE
+		AmbientSounds_v3.1.11_mc1.16.5.jar                |Ambient Sounds                |ambientsounds                 |3.0.3               |CREATE_REG|Manifest: NOSIGNATURE
+		ironfurnaces-1.16.5-2.7.7.jar                     |Iron Furnaces                 |ironfurnaces                  |2.7.7               |CREATE_REG|Manifest: NOSIGNATURE
+		simplefarming-1.16.5-1.3.8.jar                    |Simple Farming                |simplefarming                 |1.16.5-1.3.8        |CREATE_REG|Manifest: NOSIGNATURE
+		spark-1.9.1-forge.jar                             |spark                         |spark                         |1.9.1               |CREATE_REG|Manifest: NOSIGNATURE
+		L_Enders Cataclysm-0.48 Changed Theme -1.16.5.jar |Cataclysm Mod                 |cataclysm                     |1.0                 |CREATE_REG|Manifest: NOSIGNATURE
+		curios-forge-1.16.5-4.0.8.2.jar                   |Curios API                    |curios                        |1.16.5-4.0.8.2      |CREATE_REG|Manifest: NOSIGNATURE
+		Patchouli-1.16.4-53.3.jar                         |Patchouli                     |patchouli                     |1.16.4-53.3         |CREATE_REG|Manifest: NOSIGNATURE
+		collective-1.16.5-5.49.jar                        |Collective                    |collective                    |5.49                |CREATE_REG|Manifest: NOSIGNATURE
+		advancednetherite-1.12.4-1.16.5.jar               |Advanced Netherite            |advancednetherite             |1.12.4              |CREATE_REG|Manifest: NOSIGNATURE
+		villagertools-1.16.5-1.0.2.jar                    |villagertools                 |villagertools                 |1.16.5-1.0.2        |CREATE_REG|Manifest: 1f:47:ac:b1:61:82:96:b8:47:19:16:d2:61:81:11:60:3a:06:4b:61:31:56:7d:44:31:1e:0c:6f:22:5b:4c:ed
+		bettervillage-forge-1.16.5-3.2.0.jar              |Better village                |bettervillage                 |3.1.0               |CREATE_REG|Manifest: NOSIGNATURE
+		BetterThirdPerson-Forge-1.16.4-1.9.0.jar          |Better Third Person           |betterthirdperson             |1.9.0               |CREATE_REG|Manifest: NOSIGNATURE
+		elevatorid-1.16.5-1.7.13.jar                      |Elevator Mod                  |elevatorid                    |1.16.5-1.7.13       |CREATE_REG|Manifest: NOSIGNATURE
+		majruszs-difficulty-1.16.4-1.1.0.jar              |Majrusz's Progressive Difficul|majruszs_difficulty           |1.1.0               |CREATE_REG|Manifest: NOSIGNATURE
+		InventoryProfilesNext-forge-1.16-1.10.6.jar       |Inventory Profiles Next       |inventoryprofilesnext         |1.10.6.cf-1         |CREATE_REG|Manifest: NOSIGNATURE
+		mutantmore-1.16.5-1.0.2.jar                       |Mutant More                   |mutantmore                    |1.0.2               |CREATE_REG|Manifest: NOSIGNATURE
+		architectury-1.32.68.jar                          |Architectury                  |architectury                  |1.32.68             |CREATE_REG|Manifest: NOSIGNATURE
+		cloth-config-4.17.101-forge.jar                   |Cloth Config v4 API           |cloth-config                  |4.17.101            |CREATE_REG|Manifest: NOSIGNATURE
+		PlayerRevive_v2.0.0-pre04_mc1.16.5.jar            |PlayerRevive                  |playerrevive                  |2.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		inventorysorter-1.16.1-18.1.0.jar                 |Simple Inventory Sorter       |inventorysorter               |18.1.0              |CREATE_REG|Manifest: NOSIGNATURE
+		mowziesmobs-1.5.27.jar                            |Mowzie's Mobs                 |mowziesmobs                   |1.5.27              |CREATE_REG|Manifest: NOSIGNATURE
+		geckolib-forge-1.16.5-3.0.106.jar                 |GeckoLib                      |geckolib3                     |3.0.106             |CREATE_REG|Manifest: NOSIGNATURE
+		DisenchantmentEditTable-1.16.5-1.0.9.jar          |Disenchantment Edit Table     |editenchanting                |1.0.9               |CREATE_REG|Manifest: NOSIGNATURE
+		awesomedungeonend-forge-1.16.5-3.1.1.jar          |Awesome dungeon the end       |awesomedungeonend             |3.1.1               |CREATE_REG|Manifest: NOSIGNATURE
+		jei-1.16.5-7.8.0.1011.jar                         |Just Enough Items             |jei                           |7.8.0.1011          |CREATE_REG|Manifest: NOSIGNATURE
+		VisualWorkbench-v1.1.0-1.16.5.jar                 |Visual Workbench              |visualworkbench               |1.1.0               |CREATE_REG|Manifest: 9a:09:85:98:65:c4:8c:11:c5:49:f6:d6:33:23:39:df:8d:b4:ff:92:84:b8:bd:a5:83:9f:ac:7f:2a:d1:4b:6a
+		abnormals_core-1.16.5-3.3.1.jar                   |Abnormals Core                |abnormals_core                |3.3.1               |CREATE_REG|Manifest: NOSIGNATURE
+		libraryferret-forge-1.16.5-4.0.0 (1).jar          |Library ferret                |libraryferret                 |4.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		goblintraders-1.7.3-1.16.5.jar                    |Goblin Traders                |goblintraders                 |1.7.3               |CREATE_REG|Manifest: NOSIGNATURE
+		caelus-forge-1.16.5-2.1.3.2.jar                   |Caelus API                    |caelus                        |1.16.5-2.1.3.2      |CREATE_REG|Manifest: NOSIGNATURE
+		obscure_api-11.jar                                |Obscure API                   |obscure_api                   |11                  |CREATE_REG|Manifest: NOSIGNATURE
+		InvMove-1.16.3-0.4.6.jar                          |InvMove                       |invmove                       |0.4.6               |CREATE_REG|Manifest: NOSIGNATURE
+		colytra-forge-1.16.5-5.1.1.2.jar                  |Colytra                       |colytra                       |1.16.5-5.1.1.2      |CREATE_REG|Manifest: NOSIGNATURE
+		Waystones_1.16.5-7.6.4.jar                        |Waystones                     |waystones                     |7.6.4               |CREATE_REG|Manifest: NOSIGNATURE
+		Clumps-6.0.0.28.jar                               |Clumps                        |clumps                        |6.0.0.28            |CREATE_REG|Manifest: NOSIGNATURE
+		journeymap-1.16.5-5.8.5p6.jar                     |Journeymap                    |journeymap                    |5.8.5p6             |CREATE_REG|Manifest: NOSIGNATURE
+		awesomedungeon-forge-1.16.5-3.2.0.jar             |Awesome dungeon               |awesomedungeon                |3.1.0               |CREATE_REG|Manifest: NOSIGNATURE
+		comforts-forge-1.16.5-4.0.1.5.jar                 |Comforts                      |comforts                      |1.16.5-4.0.1.5      |CREATE_REG|Manifest: NOSIGNATURE
+		Artifacts-1.16.5-2.10.5.jar                       |Artifacts                     |artifacts                     |1.16.5-2.10.5       |CREATE_REG|Manifest: NOSIGNATURE
+		BasicNetherOres-1.16.5-5.5.0.jar                  |Basic Nether Ores             |bno                           |5.5.0               |CREATE_REG|Manifest: NOSIGNATURE
+		[1.16.5]-Epic-Knights-7.12.jar                    |Epic Knights Mod              |magistuarmory                 |7.12                |CREATE_REG|Manifest: NOSIGNATURE
+		DungeonCrawl-1.16.5-2.3.12.jar                    |Dungeon Crawl                 |dungeoncrawl                  |2.3.12              |CREATE_REG|Manifest: NOSIGNATURE
+		curioofundying-forge-1.16.5-5.2.0.0.jar           |Curio of Undying              |curioofundying                |1.16.5-5.2.0.0      |CREATE_REG|Manifest: NOSIGNATURE
+		campfirespawnandtweaks_1.16.5-1.6.jar             |Campfire Spawn and Tweaks     |campfirespawnandtweaks        |1.6                 |CREATE_REG|Manifest: NOSIGNATURE
+		Obscuria's Tooltips 1.0.0.jar                     |Obscuria's Tooltips           |ob_tooltips                   |1.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		TinyMobFarm-1.16.5-1.1.2.jar                      |Tiny Mob Farm                 |tinymobfarm                   |1.1.1               |CREATE_REG|Manifest: NOSIGNATURE
+		iceandfire-2.1.12-1.16.5-patch-1.jar              |Ice and Fire                  |iceandfire                    |2.1.12-1.16.5-patch-|CREATE_REG|Manifest: NOSIGNATURE
+		farsight-1.7.jar                                  |Farsight mod                  |farsight_view                 |1.7                 |CREATE_REG|Manifest: NOSIGNATURE
+		catalogue-1.6.1-1.16.5.jar                        |Catalogue                     |catalogue                     |1.6.1               |CREATE_REG|Manifest: NOSIGNATURE
+		mininggadgets-1.7.6.jar                           |Mining Gadgets                |mininggadgets                 |1.7.6               |CREATE_REG|Manifest: NOSIGNATURE
+		memoryleakfix-forge-pre1.17-1.0.0.jar             |Memory Leak Fix               |memoryleakfix                 |1.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		ars_nouveau-1.16.5-1.25.10.jar                    |Ars Nouveau                   |ars_nouveau                   |1.25.10             |CREATE_REG|Manifest: NOSIGNATURE
+		mohist-1.16.5-1220-universal.jar                  |Forge                         |forge                         |36.2.41             |CREATE_REG|Manifest: NOSIGNATURE
+		Bountiful-1.16.4-3.3.1.jar                        |Bountiful                     |bountiful                     |1.16.4-3.3.1        |CREATE_REG|Manifest: NOSIGNATURE
+		toofast-1.16.5-0.0.0.1.jar                        |Too Fast                      |toofast                       |0.0.0.1             |CREATE_REG|Manifest: NOSIGNATURE
+		Better+Fishing+Rods+1.3.0+-+1.16.5.jar            |Better Fishing Rods           |better_fishing_rods           |1.3.0               |CREATE_REG|Manifest: NOSIGNATURE
+		chococraft-1.16.5-0.3.9.jar                       |Chococraft 4                  |chococraft                    |0.3.9               |CREATE_REG|Manifest: NOSIGNATURE
+		DungeonsArise-1.16.5-2.1.49-beta.jar              |When Dungeons Arise           |dungeons_arise                |2.1.49              |CREATE_REG|Manifest: NOSIGNATURE
+		awesomedungeonocean-forge-1.16.5-3.3.0.jar        |Awesome dungeon edition ocean |awesomedungeonocean           |3.2.0               |CREATE_REG|Manifest: NOSIGNATURE
+		mohist-1.16.5-1220-server.jar                     |Minecraft                     |minecraft                     |1.16.5              |CREATE_REG|Manifest: NOSIGNATURE
+		cofh_core-1.16.5-1.5.2.22.jar                     |CoFH Core                     |cofh_core                     |1.5.2.22            |CREATE_REG|Manifest: 75:0b:cc:9b:64:2e:9b:c4:41:d1:95:00:71:ee:87:1a:b3:5e:4b:da:8e:e8:39:00:fd:5d:e5:9c:40:42:33:09
+		ensorcellation-1.16.5-1.5.0.4.jar                 |Ensorcellation                |ensorcellation                |1.5.0.4             |CREATE_REG|Manifest: 75:0b:cc:9b:64:2e:9b:c4:41:d1:95:00:71:ee:87:1a:b3:5e:4b:da:8e:e8:39:00:fd:5d:e5:9c:40:42:33:09
+		terraform-1.0.2.jar                               |Terraform Api Reforged        |terraform                     |1.0.1               |CREATE_REG|Manifest: NOSIGNATURE
+		TConstruct-1.16.5-3.3.4.335.jar                   |Tinkers' Construct            |tconstruct                    |3.3.4.335           |CREATE_REG|Manifest: NOSIGNATURE
+		sons-of-sins-1.16.5-1.0.9.jar                     |sons of sins                  |sons_of_sins                  |1.0.9               |CREATE_REG|Manifest: NOSIGNATURE
+		horsecombatcontrols-1.16.5-1.0.4.jar              |Horse Combat Controls         |horsecombatcontrols           |1.16.5-1.0.4        |CREATE_REG|Manifest: NOSIGNATURE
+		libIPN-forge-1.16-3.0.2.jar                       |libIPN                        |libipn                        |3.0.2               |CREATE_REG|Manifest: NOSIGNATURE
+		EnchantmentDescriptions-1.16.5-7.1.23.jar         |EnchantmentDescriptions       |enchdesc                      |7.1.23              |CREATE_REG|Manifest: eb:c4:b1:67:8b:f9:0c:db:dc:4f:01:b1:8e:61:64:39:4c:10:85:0b:a6:c4:c7:48:f0:fa:95:f2:cb:08:3a:e5
+		awesomedungeonnether-forge-1.16.5-3.1.1.jar       |Awesome dungeon nether        |awesomedungeonnether          |3.1.1               |CREATE_REG|Manifest: NOSIGNATURE
+		CreativeCore_v2.2.1_mc1.16.5.jar                  |CreativeCore                  |creativecore                  |2.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		smoothboot-forge-1.16.4-1.2.2.jar                 |Smooth Boot                   |smoothboot                    |1.16.4-1.2.2        |CREATE_REG|Manifest: NOSIGNATURE
+		atmospheric-1.16.5-3.1.1.jar                      |Atmospheric                   |atmospheric                   |3.1.1               |CREATE_REG|Manifest: NOSIGNATURE
+		betterfpsdist-1.2.jar                             |betterfpsdist mod             |betterfpsdist                 |1.2                 |CREATE_REG|Manifest: NOSIGNATURE
+		majrusz-library-1.16.4-2.0.1.jar                  |Majrusz Library               |majrusz_library               |2.0.1               |CREATE_REG|Manifest: NOSIGNATURE
+		pipez-1.16.5-1.2.15.jar                           |Pipez                         |pipez                         |1.16.5-1.2.15       |CREATE_REG|Manifest: NOSIGNATURE
+		flywheel-1.16-0.2.5.jar                           |Flywheel                      |flywheel                      |1.16-0.2.5          |CREATE_REG|Manifest: NOSIGNATURE
+		farmersrespite-1.16.5-1.1.jar                     |Farmer's Respite              |farmersrespite                |1.16.5-1.1          |CREATE_REG|Manifest: NOSIGNATURE
+		Mantle-1.16.5-1.6.157.jar                         |Mantle                        |mantle                        |1.6.157             |CREATE_REG|Manifest: NOSIGNATURE
+		kryptonreforged-mc1.16.5_v1.0.0.jar               |Krypton Reforged              |kryptonreforged               |mc1.16.5_v1.0.0     |CREATE_REG|Manifest: NOSIGNATURE
+		JustEnoughProfessions-1.16.5-1.2.2.jar            |Just Enough Professions (JEP) |justenoughprofessions         |1.2.2               |CREATE_REG|Manifest: NOSIGNATURE
+		[1.16.5]+SecurityCraft+v1.9.5.jar                 |SecurityCraft                 |securitycraft                 |v1.9.5              |CREATE_REG|Manifest: NOSIGNATURE
+		entityculling-forge-mc1.16.5-1.5.2.jar            |EntityCulling                 |entityculling                 |1.5.2               |ERROR     |Manifest: NOSIGNATURE
+		FastFurnace-1.16.5-4.5.0.jar                      |FastFurnace                   |fastfurnace                   |4.5.0               |CREATE_REG|Manifest: NOSIGNATURE
+		appleskin-forge-mc1.16.x-2.5.1.jar                |AppleSkin                     |appleskin                     |2.5.1+mc1.16.4      |CREATE_REG|Manifest: NOSIGNATURE
+		ferritecore-2.1.1-forge.jar                       |Ferrite Core                  |ferritecore                   |2.1.1               |CREATE_REG|Manifest: 41:ce:50:66:d1:a0:05:ce:a1:0e:02:85:9b:46:64:e0:bf:2e:cf:60:30:9a:fe:0c:27:e0:63:66:9a:84:ce:8a
+		PuzzlesLib-v1.0.15-1.16.5-Forge.jar               |Puzzles Lib                   |puzzleslib                    |1.0.15              |CREATE_REG|Manifest: 9a:09:85:98:65:c4:8c:11:c5:49:f6:d6:33:23:39:df:8d:b4:ff:92:84:b8:bd:a5:83:9f:ac:7f:2a:d1:4b:6a
+		enhancedcelestials-2.0.9-1.16.5.jar               |Enhanced Celestials           |enhancedcelestials            |2.0.9-1.16.5        |CREATE_REG|Manifest: NOSIGNATURE
+		byg-1.3.6 (1).jar                                 |Oh The Biomes You'll Go       |byg                           |1.3.4               |CREATE_REG|Manifest: NOSIGNATURE
+		BetterF3-1.5.0-Forge-1.16.5.jar                   |BetterF3                      |betterf3                      |1.5.0               |CREATE_REG|Manifest: NOSIGNATURE
+		Aquaculture-1.16.5-2.1.23.jar                     |Aquaculture 2                 |aquaculture                   |1.16.5-2.1.23       |CREATE_REG|Manifest: NOSIGNATURE
+		Obscuria's Essentials 3.0.0.jar                   |Obscuria's Essentials         |ob_core                       |3.0.0               |CREATE_REG|Manifest: NOSIGNATURE
+		expandability-2.0.1-forge.jar                     |ExpandAbility                 |expandability                 |2.0.1               |CREATE_REG|Manifest: NOSIGNATURE
+		CosmeticArmorReworked-1.16.5-v5a.jar              |CosmeticArmorReworked         |cosmeticarmorreworked         |1.16.5-v5a          |CREATE_REG|Manifest: 5e:ed:25:99:e4:44:14:c0:dd:89:c1:a9:4c:10:b5:0d:e4:b1:52:50:45:82:13:d8:d0:32:89:67:56:57:01:53
+		valhelsia_core-16.0.15.jar                        |Valhelsia Core                |valhelsia_core                |16.0.15             |CREATE_REG|Manifest: NOSIGNATURE
+		valhelsia_structures-1.16.5-0.1.6.jar             |Valhelsia Structures          |valhelsia_structures          |1.16.5-0.1.6        |CREATE_REG|Manifest: NOSIGNATURE
+		FabricBiomeApiReforged-1.0.5.jar                  |Fabric BiomeApi Reforged      |fabric-biome-api              |1.0.5               |CREATE_REG|Manifest: NOSIGNATURE
+		Cinderscapes-Reforged-1.0.3.jar                   |Cinderscapes Reforged         |cinderscapes                  |1.0.3               |CREATE_REG|Manifest: NOSIGNATURE
+		healingcampfire_1.16.5-3.9.jar                    |Healing Campfire              |healingcampfire               |3.9                 |CREATE_REG|Manifest: NOSIGNATURE
+		aquamirae-5.4.API11.jar                           |Aquamirae                     |aquamirae                     |5.4.API11           |CREATE_REG|Manifest: NOSIGNATURE
+	Crash Report UUID: e8130a74-65bb-4a21-87ba-ad1484fac356
+	CraftBukkit Information: 
+   Running: 
+   Failed to handle CraftCrashReport: craftbukkit not runs
